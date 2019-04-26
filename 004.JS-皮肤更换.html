@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link id="skin" rel="stylesheet" href="css/001-mn.css">
+	<script>
+		function toChange(){
+			var obox=document.getElementById('skin');
+			obox.href='css/002-ys.css';
+
+
+		}
+		function toNomal(){
+			document.getElementById('skin').href='css/001-mn.css'
+		}
+	</script>
+</head>
+<body>
+	<button onclick="toNomal()">美女皮肤</button>
+	<button onclick="toChange()">野兽皮肤</button>
+
+	
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	div{
+	width: 500px;
+	height: 500px;
+	background-color: #ff6700;
+	transition:all 3s;
+}
+</style>
+<script>
+	function toChange(){
+	var oBox=document.getElementById('box');
+	oBox.style.width='100px';
+	oBox.style.height='100px';
+	oBox.style.background='blue';
+	}
+	function topNomal(){
+		var obox=document.getElementById('box')
+		obox.style.width='200px';
+		obox.style.background='red';
+	}
+</script>
+</head>
+<body>
+	<!-- <input type="checkbox" onmouseover="box.style.display='block'" onmouseout="box.style.display='none'">免七天登录
+	<div id="box">你确定要这样做吗</div> -->
+	<!-- <input type="checkbox" onclick="box.style.display='block'" onmouseout="box.style.display='none'">免七天登录
+	<div id="box">你确定要这样做吗</div>
+	 -->
+	 <div id="box" onmouseover ="topNomal()" onmouseout="toChange()"></div>
+</body>
+</html>
