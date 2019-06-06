@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>
+</head>
+<body>
+	<div id="timer">
+		距离活动结束还有08小时20分30秒
+	</div>
+</body>
+<script>
+	function to2Str(num){
+		return num < 10 ? '0'+num : ''+num;
+	}//定义当小时，分钟，秒小于10的时候，前面加上0
+	var oBox = document.getElementById('box');//选中dom元素
+	var aImg = oBox.children;//选择子元素
+	var timer = 0;//定义timer的值
+	var orderTime = new Date('2018-12-07 19:00:00');//定义一个结束时间
+	var endTime = orderTime.getTime();
+	function time(){
+		var allTime = (endTime - Date.now())/1000;//计算距离结束的秒数
+		if(allTime <= 0 ){
+			allTime = 0;
+			clearInterval(timer);//当距离时间为0时，关闭循环型定时器
+		}
+		var oH = parseInt(allTime/3600);//计算小时数
+
+		var oM = parseInt((allTime%3600)/60);//计算分钟数
+		var oS = parseInt(allTime%3600)%60;//计算秒数
+		var time = to2Str(oH)+to2Str(oM)+to2Str(oS);//实现小时分钟秒的拼接
+		for(var i =0;i<aImg.length;i++){
+			aImg[i].src = 'image/'+time.charAt(i)+'.png';
+		}//将图片应用进去
+
+	}
+	timer = setInterval(time,1000);//设置循环时间
+	time();//输出time函数
+
+
+	
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var a =11;
+	var b =22;
+
+	function bar(){
+		var a =1;
+		console.log("bar:::",a);//1
+		console.log("bar:::",b);//22
+		function fn1(){
+			var b =2;
+			var c =3;
+			console.log("fn1:::",a);//1
+		console.log("fn1:::",b);//2
+		;
+		console.log("fn1:::",c);//3
+
+		}
+		fn1()
+	}
+	bar()
+
+</script>
+</html>

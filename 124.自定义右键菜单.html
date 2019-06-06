@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0px;
+			padding: 0px;
+		}
+		#menu{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div id="menu"></div>
+	
+</body>
+<script>
+	var oMenu =document.getElementById("menu");
+	
+	document.oncontextmenu =function(ev){//添加右击菜单函数
+		oMenu.style.display = 'block';//当右击鼠标时，默认是出现状态
+
+
+		oMenu.style.top =ev.clientY +"px";//菜单的top值是鼠标竖直方向的值
+
+
+		oMenu.style.left =ev.clientX +"px";//菜单的left值是鼠标水平方向上的值
+		return false;//清除默认事件
+	}
+	  document.onclick =function(){
+		oMenu.style.display = "none"
+		;}//点击空白处时，菜单消失
+	
+	oMenu.onclick =function(){
+		event.stopPropagation();//阻止事件冒泡
+	}
+	
+
+</script>
+</html>

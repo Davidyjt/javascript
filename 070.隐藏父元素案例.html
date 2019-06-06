@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>隐藏父元素</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<li><a href="#">5</a></li>
+		<li><a href="#">6</a></li>
+		
+	</ul>
+	
+</body>
+<script>
+	// var oUl1 =document.getElementById("ul1");
+	var aA =document.getElementsByTagName('a');//获取子元素
+	// console.log(oUl1);
+	// console.log(aA);
+	for(var i=0;i<aA.length;i++){//设置一个循环
+		aA[i].onclick = function(){
+			this.parentNode.style.display = "none";
+		}
+	}
+	
+
+
+</script>
+</html>

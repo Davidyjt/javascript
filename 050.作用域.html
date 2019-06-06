@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作用域</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var a = 1;
+	function fn1(){
+		console.log("fn1:::",a);}
+		function fn2(){
+			var a = 2;
+			fn1()
+		}fn2()
+	
+	
+	console.log("fn2",a)
+</script>
+</html>

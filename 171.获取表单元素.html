@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取表单元素</title>
+</head>
+<body>
+	<form action="https://www.kuazhu.com" id="form1">
+		<div>
+			用户名:<input type="text" name="username">
+		</div>
+		<div>
+			密码:<input type="password" name="password">
+		</div>
+	</form>
+	<form action="">
+		
+	</form>
+</body>
+<script>
+	var aForms=document.forms;//获取所有form元素
+	var oForm=aForms[0];//获取单个form元素
+	var aElements =oForm.elements;//获取form元素里的子元素
+
+
+	console.log(aForms)
+	console.log(oForm)
+	console.log(aElements)
+	var oInput =oForm.password;//获取form里的某个子元素
+
+	console.log(oInput)
+
+
+
+</script>
+</html>

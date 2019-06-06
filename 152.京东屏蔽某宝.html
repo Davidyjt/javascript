@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0px;
+			padding: 0px;
+		}
+		#list{
+			list-style: none;
+		}
+                #txt{
+                        margin: 100px auto;
+                }
+                #list{
+                        margin: 100px auto;
+                }
+	</style>
+</head>
+<body>
+	<input type="text"
+	id="txt" autocomplete="off">
+	<button id="btn">发布</button>
+	<ul id="list"></ul>
+	
+</body>
+	<script>
+		var oTxt =document.getElementById("txt");
+		var oBtn =document.getElementById("btn");
+		var oList =document.getElementById("list");
+
+
+
+        oBtn.onclick=function(){
+        	var oAl =oTxt.value;
+        	var newLi= document.createElement("li");
+        	var oA =document.createElement("a");
+        	
+        	var reg =/淘宝|taobao|掏宝|某宝/g;
+        	var newoAl =oAl.replace(reg,"*");
+        	newLi.innerHTML=newoAl;
+
+        	oA.className ="del";
+        	oA.href ="#";
+        	oA.innerHTML ="删除";
+
+        	newLi.appendChild(oA);
+        	oList.insertBefore(newLi, oList.firstChild);
+        	oTxt.value ="";
+        
+        	
+        }
+        oList.onclick =function(ev){
+        	var oTarget =ev.target;
+        	if(oTarget.className="del"){
+        		oList.removeChild(oTarget.parentNode)
+        	}
+        }
+        
+
+	</script>
+</html>

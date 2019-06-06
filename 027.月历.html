@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.time{
+		width: 400px;
+		height: 700px;
+		background-color: gray;
+		  margin: 100px auto;
+	}
+	ul{width:400px;
+	   height: 550px;
+	   background: gray;
+	  
+	   overflow: hidden;
+
+	}
+	li{
+		width: 120px;
+		height: 100px;
+		color: #fff;
+		float: left;
+		list-style: none;
+		font-size: 20px;
+		text-align: center;
+		padding-top: 40px;
+		box-sizing: border-box;
+		margin-top: 30px;
+		margin-left: 10px;
+		background-color: black;
+		display: inline-block;
+
+
+	}
+	.active:hover{
+		background-color: #fff;
+		color: black;
+
+
+
+		}
+		.plan{
+		margin-top:30px; 
+		}
+		.clearfix:after{
+        content: "";
+        clear: both;
+        display: block;
+        height: 0px;
+        visibility: hidden;
+    }
+    .clearfix{
+        *zoom:1;
+    }
+
+		
+	</style>
+	
+	
+	
+</head>
+<body>
+
+
+	<div class="time">
+		<ul class="clearfix">
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+			<li>11</li>
+			<li>12</li>
+	    </ul>
+	   	<div class="plan">
+		 	<h1>1月</h1>
+		 	<p>吃饭</p>
+	   	</div>
+		
+	</div>
+</body>
+<script>
+	var aLi = document.getElementsByTagName('li');
+	var aPla =document.querySelector('.plan')
+	var arr =['养生','喝酒','打豆豆','睡觉','吃饭','喝酒','打豆豆','睡觉','吃饭','喝酒','打豆豆','睡觉'];
+
+	aPla.innerHTML = "<h1>1月<h1><p>" + arr[0] + "</p>";
+	
+
+	for(var i =0;i <aLi.length;i++){
+		aLi[i].index = i;
+		 aLi[i].onmouseover=function(){
+			
+			for(var j =0;j<aLi.length;j++){
+			this.className=""
+		}
+			this.className='active';
+			aPla.innerHTML = "<h1>" + (this.index+1)  + "月<h1><p>" + arr[this.
+			index] + "</p>";
+	}
+	}
+</script>
+</html>

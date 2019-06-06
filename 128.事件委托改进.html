@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">添加</button>
+	
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		
+		
+		var oDiv = document.createElement("div");
+		console.log(oDiv)
+		document.body.appendChild(oDiv);
+	}
+	var oDiv =document.getElementsByClassName("div");
+	// var aA =document.getElementsByTagName('a');//获取子元素
+	// // console.log(oUl1);
+	// // console.log(aA);
+	// for(var i=0;i<aA.length;i++){//设置一个循环
+	// 	aA[i].onclick = function(){
+	// 		this.parentNode.style.display = "none";
+	// 	}
+	// }
+	oDiv.onclick =function(ev){
+		console.log(ev.target);
+		var oTarget =ev.target;
+		// if(oTarget.className =="del"){//判断是否点击到a标签上
+		body.removeChild(oTarget.parentNode);
+	}	
+</script>
+</html>

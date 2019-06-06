@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>密码验证</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">筛选</button>
+	
+</body>
+<script>
+	var oTxt =document.getElementById("txt");
+	var oBtn =document.getElementById("btn");
+	oBtn.onclick=function(){
+		var sVal=oTxt.value;
+		//以字母开头，长度在6-12之间，只能包括字母 数字 下划线
+		var reg =/^[a-zA-Z]\w{5,11}$/;//y以大写或小写字母开头，跟上5-11个数字 字母 下划线等
+
+		if(reg.test(sVal)){
+			alert("合法密码")
+		}else{
+			alert("不合法密码")
+		}
+	}
+</script>
+</html>

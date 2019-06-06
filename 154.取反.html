@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>取反</title>
+</head>
+<body>
+	<textarea type="text" id="txt" cols="30" rows="30"></textarea> 
+	<button id="btn">过滤</button>
+	<textarea type="text" id="txt1" cols="30" rows="30"></textarea> 
+	
+</body>
+<script>
+	var oTxt =document.getElementById("txt");
+	var oBtn =document.getElementById("btn");
+	var oTxt1 =document.getElementById("txt1");
+	oBtn.onclick=function(){
+		var reg =/<[^<>]+>/g;//过滤掉html的标签
+
+
+		oTxt1.value =oTxt.value.replace(reg,"*");
+		// oTxt.value=""
+	}
+</script>
+</html>

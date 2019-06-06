@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取表单元素</title>
+</head>
+<body>
+	<form action="https://www.kuazhu.com">
+		<div>
+			姓名<input type="text" id="txt">
+			密码<input type="password" id="password" name="password">
+		</div>
+		<div>
+			性别：
+			男：<input type="radio" name="male"value="male">
+			女：<input type="radio" name="male"value="female">
+		</div>
+		<div>
+			爱好：
+			<input type="checkbox" name="hoddy">篮球
+			<input type="checkbox" name="hoddy">足球
+		</div>
+		<div>
+			<select name="city" id="">
+				<option value="sh">上海</option>
+				<option value="gz">广州</option>
+				<option value="sz">深圳</option>
+				<option value="zz">郑州</option>
+			</select>
+		</div>
+	</form>
+</body>
+<script>
+	var aForms=document.forms;//获取所有form元素
+	var oForm=aForms[0];//获取单个form元素
+	var aElements =oForm.elements;//获取form元素里的子元素
+	var oMale=oForm.male;
+	oMale[0].checked = true;//单选框选中
+
+	var oPass =oForm.password;
+	// oPass.readOnly=true;
+	 oPass.disabled=true;
+
+
+	var oHabby =oForm.hoddy;
+	oHabby[0].checked =true;
+	oHabby[1].checked =true;//多选框选中
+
+	var oCity =oForm.city;
+	// oCity.Options[1].selected =true;
+	oCity.options[3].selected =true;//下拉框默认选中
+	
+
+
+	console.log(aForms)
+	// console.log(Forms)
+	console.log(aElements)
+</script>
+</html>

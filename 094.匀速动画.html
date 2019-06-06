@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匀速动画</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			background: red;
+			position: absolute;
+			top: 50px;
+			left: 1600px;
+		}
+		.line{
+			height: 400px;
+			width: 1px;
+			background: black;
+			position: absolute;
+			top: 50px;
+			left: 800px;
+
+		}
+
+
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div class="line"></div>
+	<button id="btn">开始</button>
+	
+</body>
+<script>
+	var oBox =document.getElementById('box');//获取需要添加动画的盒子
+	var oBtn =document.getElementById('btn');//获取开始按钮
+	var timer =null;//定义一个空，方便下面使用和赋值
+	var iSpeed = 0;
+	oBtn.onclick=function(){//设置一个点击函数
+		clearInterval(timer)//解决多次点击问题
+
+	timer = setInterval(function(){//设置一个循环计时器
+		if(oBox.offsetLeft <800){//设置当left小于800时，速度为13，其余为-13.
+			iSpeed =13;
+		}else {
+			iSpeed =-13;
+		}//设置正向和反向动画
+
+
+
+
+
+		if(Math.abs(800 - oBox.offsetLeft) < Math.abs(iSpeed)){
+			oBox.style.left = "800px"
+			clearInterval(timer);//当元素的offsetleft值等于800时，关闭该循环定时器
+		}else {
+			oBox.style.left =oBox.offsetLeft + iSpeed+"px";//其余情况下元素的offsetleft每次循环加10px;
+		}
+		},30)
+
+		 
+		}
+
+		
+	
+
+
+</script>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委托</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li><a href="#" class="del">1</a></li>
+		<li><a href="#" class="del">2</a></li>
+		<li><a href="#" class="del">3</a></li>
+		<li><a href="#" class="del">4</a></li>
+		<li><a href="#" class="del">5</a></li>
+		<li><a href="#" class="del">6</a></li>
+		
+	</ul>
+	
+</body>
+<script>
+	var oUl1 =document.getElementById("ul1");
+	// var aA =document.getElementsByTagName('a');//获取子元素
+	// // console.log(oUl1);
+	// // console.log(aA);
+	// for(var i=0;i<aA.length;i++){//设置一个循环
+	// 	aA[i].onclick = function(){
+	// 		this.parentNode.style.display = "none";
+	// 	}
+	// }
+	oUl1.onclick =function(ev){//设置盒子点击事件
+		console.log(ev.target);
+		var oTarget =ev.target;
+		if(oTarget.className =="del"){//判断是否点击到a标签上
+		oUl1.removeChild(oTarget.parentNode)}
+	}
+
+
+</script>
+</html>

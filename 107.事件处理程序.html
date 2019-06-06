@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件处理程序</title>
+</head>
+<body>
+	<button id="btn">点击</button>
+	<button id="btnoff">移除</button>
+
+	
+</body>
+<script>
+	var oBtn =document.getElementById("btn");
+	var oBtnoff =document.getElementById("btnoff")
+
+
+	  function tomClick(){
+	  	alert("tom click")
+	  }
+	  function leoClick(){
+	  	alert("leo click")
+	  }
+	  oBtn.onclick = tomClick;
+	  oBtn.onclick = leoClick;
+
+
+	  //DOM2级
+	  oBtn.addEventListener("click", tomClick, false);
+	  oBtn.addEventListener("click", leoClick, false);
+
+
+	  oBtnoff.addEventListener("click", function(){
+	  	oBtn.removeEventListener("click", tomClick, false)
+
+	  }, false)
+
+</script>
+</html>

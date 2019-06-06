@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>選項卡</title>
+	<link rel="stylesheet" href="css/resert.css">
+	<style>
+	#tab-btn li{
+		float: left;
+		margin-left: 10px;
+		cursor: pointer;
+
+	}
+	#tab-content li{
+		width: 200px;
+		height: 200px;
+		border: 1px solid gray;
+
+	}
+	#tab-content{
+		margin-top: 20px;
+	}
+	#tab-content li{
+		display: none;
+	}
+	li{
+		list-style: none;
+	}
+	#tab-content .li{
+		display: block;
+	}
+	.active{
+		border-bottom: 2px solid #ff6700;
+		color: #ff6700;
+	}
+	.clearfix:after{
+        content: "";
+        clear: both;
+        display: block;
+        height: 0px;
+        visibility: hidden;
+    }
+    .clearfix{
+        *zoom:1;
+    }
+
+		
+	</style>
+	
+</head>
+<body>
+	<ul id="tab-btn" class="clearfix">
+		<li class="active">熱門</li>
+		<li>電視影音</li>
+		<li>電腦</li>
+		<li>家具</li>
+		<li>原子弹</li>
+	</ul>
+	<ul id="tab-content">
+		<li class="li">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>发货</li>
+	</ul>
+	
+</body>
+<script>
+	// ontent = document.querySelectorAll("#tab-content li");//获取内容var aBtn = document.querySelectorAll("#tab-btn li");//获取电器的按钮
+	// var aC
+
+	// for(var i = 0;i < aBtn.length;i++){
+	// 	aBtn[i].index = i;//存一个变量
+
+	// 	aBtn[i].onmouseover = function(){
+	// 	for(var j = 0;j < aBtn.length;j++){
+	// 		aBtn[j].className ="";//清空abtn的class属性
+	// 		aContent[j].style.display = "none";//把内容none掉
+	// 	}
+		
+	// 		this.className = "active";//
+	// 		aContent[this.index].style.display = "block";
+	// 	}
+	// }
+	function Tab(){
+		//1.罗列属性
+		this.aBtn=document.querySelectorAll("#tab-btn li");
+		this.aContent =document.querySelectorAll("#tab-content li");
+
+		//2.绑定事件
+		this.bindEvent();
+	}
+	Tab.prototype.bindEvent=function(){
+		var _this = this;//将this存起来，this代表tab
+		for(var i =0;i<this.aBtn.length;i++){
+			this.aBtn[i].index =i;//将每个btn的i值存起来
+			this.aBtn[i].onclick =function(){
+				_this.fnClick(this);
+			}
+		}
+
+	} 
+	Tab.prototype.fnClick =function(oBtn){
+		for(var j = 0;j<this.aBtn.length;j++){
+			this.aBtn[j].className ="";//前一个按钮的类名为空
+			this.aContent[j].style.display= 'none';//前一个内容消失
+		}
+		oBtn.className ="active";
+		this.aContent[oBtn.index].style.display = 'block';//当前内容的display为block
+		}
+		new Tab("#tab-btn1 li","#tab-content1 li");
+	
+
+
+
+
+
+</script>
+</html>

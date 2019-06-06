@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单提交和提示</title>
+</head>
+<body>
+	<form action="https://www.kuazhu.com" id="sheet" autocomplete="off">
+		<input type="text" id="txt">
+		<input type="submit" id="sub">
+		<input type="reset" id="res">
+		<p id="msg"></p>
+	</form>
+	
+</body>
+<script>
+	var oSheet =document.getElementById("sheet");
+	var oTxt =document.getElementById("txt");
+	var oSub =document.getElementById("sub");
+	var oRes =document.getElementById("res");
+	var oMsg =document.getElementById("msg");
+
+	oTxt.onfocus =function(){//表单获取焦点触发
+		oMsg.innerHTML ="请输入4-6位数字"
+		oMsg.style.color="green";
+	}
+	oTxt.onblur =function(){//表单失去焦点触发
+		var len =oTxt.value.length;
+		if(len<4 || len>6){
+			oMsg.innerHTML ="请输入正确数字"
+		oMsg.style.color="blue";
+
+		}else {
+			oMsg.innerHTML ="合法信息"
+		    oMsg.style.color="skyblue";
+		}
+	}
+	// oTxt.onchange =function(){
+	// 	console.log(11)
+	// }
+	oTxt.oninput =function(){//表单输入后触发
+		var len =oTxt.value.length;
+		if(len<4 || len>6){
+			oMsg.innerHTML ="请输入正确数字"
+		oMsg.style.color="blue";
+
+		}else {
+			oMsg.innerHTML ="合法信息"
+		    oMsg.style.color="skyblue";
+
+	}
+}
+    oSheet.onsubmit =function(){//提交事件
+    	console.log('提交事件')
+    }
+    oSheet.onreset =function(){//删除事件
+    	console.log('删除事件')
+    }
+
+
+
+</script>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str ="this is a cat that is a dog";
+	var reg1 =/\bis\b/g;//单词边界
+	var reg2 =/\Bis/g;//非单词边界
+	console.log(str);
+	console.log(str.replace(reg1,"*"));
+	console.log(str.replace(reg2,"*"));
+</script>
+</html>

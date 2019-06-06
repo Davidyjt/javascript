@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+        #father{
+        	width: 500px;
+        	height: 500px;
+        	border: 1px solid gray;
+        	box-sizing: border-box;
+        	margin: 100px auto;
+        	position: relative;
+        }
+
+
+
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+
+					}
+	/*	body{
+			width: 3000px;
+			height: 3000px;
+		}*/
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="box"></div>
+	</div>
+	
+	
+</body>
+<script src="animation.js"></script>
+<!-- //引入外部动画,包括垂直方向和竖直方向上的滚动距离 -->
+<script>
+    var oBox = document.getElementById("box");
+    var oFather=document.getElementById("father")
+    oBox.onmousedown =function(ev){//当盒子被点击时
+    var disX =ev.clientX - oBox.offsetLeft;
+    var disY =ev.clientY - oBox.offsetTop;
+    var l =0;
+    var t = 0;
+    document.onmousemove = function(ev){
+    	l=ev.clientX -disX;//计算盒子的左边距
+    	t =ev.clientY-disY;//计算盒子的上边距
+    	if(l<50){//d当左边距小于零时，左边距为零，防止拖出界面
+    		l =0
+    	}else if(l >  oFather.offsetWidth- oBox.offsetWidth -50){//视图宽度减去盒子的宽度，算出盒子距左边的最大距离
+    	
+    		l = oFather.offsetWidth- oBox.offsetWidth;//当盒子距左边距离大于最大距离时，则距离等于最大距离
+
+    	}
+    	if(t<50){
+    		t =0
+    	}else if(t >  oFather.offsetHeight- oBox.offsetHeight -50){
+    	
+    		t = oFather.offsetHeight- oBox.offsetHeight;//当盒子距顶部大于距顶部的最大距离时，距顶部距离为最大距离
+
+    	}
+    	oBox.style.left = l+ "px";//
+    	oBox.style.top = t+ "px";
+
+
+    }
+    document.onmouseup=function(){
+    	document.onmousemove=null;
+    	document.onmouseup=null;
+
+    }
+
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>延迟菜单</title>
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		.box{
+			width: 600px;
+			margin: 100px auto;
+
+		}
+		#left-box{
+			width: 50px;
+			height: 400px;
+			background: #ff6700;
+			float: left;
+		}
+		#right-box{
+			width: 400px;
+			height: 400px;
+			margin-left: 100px;
+			background: pink;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div id="left-box"></div>
+		<div id="right-box"></div>
+		
+	</div>
+	
+</body>
+<script>
+	var lBox =document.getElementById('left-box');//获取左边内容
+	var rBox =document.getElementById('right-box');//获取右边内容
+	var timer = null;
+
+	lBox.onmouseover=function(){
+		rBox.style.display="block";//放在左边上时，右边出现
+		clearTimeout(timer)//放在左边是清除延迟。
+	}
+	lBox.onmouseout=function(){
+		
+	timer =	setTimeout(function(){rBox.style.display="none";}, 500)//当从左边移出后，右边内容延迟500ms消失
+	}
+
+	rBox.onmouseover=function(){
+		rBox.style.display = "block"
+		clearTimeout(timer)//当放在右边时，右边内容出现，并清除延迟
+	}
+	rBox.onmouseout=function(){
+		
+		timer = setTimeout(function(){rBox.style.display = "none"}, 500)//当从右边移走时，右边内容延迟500ms消失
+	}
+</script>
+</html>

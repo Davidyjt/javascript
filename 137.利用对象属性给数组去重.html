@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>利用对象属性给数组去重</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr =[5,2,5,5,9,12,34,67,9];
+	console.log(arr);
+	function uniqueArr(arr){
+		var result =[];
+		var obj ={};
+		for(var i =0;i<arr.length;i++){
+			obj[arr[i]]="";
+		}
+		for(attr in obj){
+			result.push(attr*1);
+		}
+		return result;
+	}
+	console.log(uniqueArr(arr));
+</script>
+</html>

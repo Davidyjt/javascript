@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>量词</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str ="1222 mmnj 568 lkjmm mbkln 09 jjnbgh";
+    var reg1 =/\m\m/g;
+	var reg2 =/\m{2}/g;
+	var reg3=/\m{1,}/g;
+	var reg4=/\j{1,2}/g;
+	var reg5=/\d+/g;//前面的原子最少出现一次
+	var reg6=/\d?/g;//前面的原子最少出现零次,最多出现一次
+	var reg7=/\d*/g;//前面的原子最少出现零次,最多出现一次
+
+
+    console.log(str)
+	console.log(str.replace(reg1,"*"))
+	console.log(str.replace(reg2,"*"))
+	console.log(str.replace(reg3,"*"))
+	console.log(str.replace(reg4,"*"))
+	console.log(str.replace(reg5,"*"))
+	console.log(str.replace(reg6,"*"))
+	console.log(str.replace(reg7,"*"))
+</script>
+</html>

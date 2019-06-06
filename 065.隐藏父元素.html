@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<li>1 <a href="">隐藏</a></li>
+	<li>2 <a href="">隐藏</a></li>
+	<li>3 <a href="">隐藏</a></li>
+	<li>4 <a href="">隐藏</a></li>
+	<li>5 <a href="">隐藏</a></li>
+	<li>6 <a href="">隐藏</a></li>
+	
+</body>
+<script>
+	var aA= document.getElementsByTagName("a");
+	console.log(aA)
+	for(var i=0;i<aA.length;i++){
+		aA[i].onclick=function(){
+			
+				aA[i].parentNode.display = 'none';
+
+
+
+		}
+
+		}
+
+
+
+	
+
+</script>
+</html>

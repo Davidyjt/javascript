@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>只能输入数字</title>
+</head>
+<body>
+	输入银行卡号：<input type="text" id="txt" autocomplete="off" >
+</body>
+<script>
+	var oTxt =document.getElementById("txt");
+	document.onkeydown =function(ev){
+		console.log(ev.keyCode);//数字键0-9的对应值是96-105,8是删除键，37,39分别是左右键
+		if((ev.keyCode<96 || ev.keyCode>105 )&& ev.keyCode !=8 && ev.keyCode !=37 && ev.keyCode !=39)
+			return false;//返回错误
+	}
+</script>
+
+</html>

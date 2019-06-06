@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多物体同时运动</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.box{
+		width: 100px;
+		height: 100px;
+		background: red;
+		margin-top:50px;
+		margin-left: auto;
+		margin-right: auto; 
+	}
+    #box3{  
+    	opacity: 0.1;
+
+    }
+
+		
+	</style>
+  
+	
+</head>
+<body>
+	<div class="box" id="box1"></div>
+	<div class="box" id="box2"></div>
+	<div class="box" id="box3"></div>
+	
+</body>
+<script>
+	var oBox1 =document.getElementById('box1');
+	var oBox2 =document.getElementById('box2');
+	var oBox3 =document.getElementById('box3');
+
+	oBox1.onmouseover =function(){//设置放在box1上的函数
+		clearInterval(oBox1.timer);
+		oBox1.timer =setInterval(function(){
+			if(oBox1.offsetWidth <400){
+				iSpeed =7;
+			}else {
+				iSpeed =-7;
+			}//设置正向反向运动
+			if (Math.abs(400 - oBox1.offsetWidth) < Math.abs(iSpeed)) {
+				oBox1.style.width = 400+"px";//当距离小于速度时，obox1的宽度为400px
+				
+			}
+			else{
+				oBox1.style.width = oBox1.offsetWidth + iSpeed + "px";
+			}
+		}, 30)
+	}
+	oBox2.onmouseover =function(){//设置放在box2上的函数
+		clearInterval(oBox2.timer);
+		oBox2.timer =setInterval(function(){
+			if(oBox2.offsetHeight <400){
+				iSpeed =7;
+			}else {
+				iSpeed =-7;
+			}//设置正向反向运动
+			if (Math.abs(400 - oBox2.offsetHeight) < Math.abs(iSpeed)) {
+				oBox2.style.height  = 400+"px";//当距离小于速度时，obox2的宽度为400px
+				clearInterval(oBox2.timer)
+				
+			}
+			else{
+				oBox2.style.height = oBox2.offsetHeight + iSpeed + "px";
+			}
+		}, 30)
+	}
+    oBox3.onmouseover = function(){
+		clearInterval(oBox3.timer);
+		oBox3.timer = setInterval(function(){
+			var currentVal = parseFloat(getComputedStyle(oBox3,false)["opacity"]);//获取透明度值
+			currentVal = Math.round(currentVal*100);//将透明度变成百分值
+			if(currentVal < 100){
+				iSpeed = 3;
+ 			}else{
+ 				iSpeed = -3;
+ 			}
+			if(Math.abs(100 - currentVal) < Math.abs(iSpeed)){
+				oBox3.style.opacity = 1;
+				clearInterval(oBox3.timer);
+			}else{
+				oBox3.style.opacity = (currentVal + iSpeed)/100;
+			}
+		},30)
+	}
+
+
+
+</script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>贪婪模式和非贪婪模式</title>
+</head>
+<body>
+
+	
+</body>
+<script>
+	var str ="12345";
+	var reg =/\d{2,4}/ ;
+	var reg1 =/\d{2,4}?/ ;
+	var reg2 =/\d{3,4}?/g ;//全局模式
+	var reg3 =/\d{2,4}/g ;//全局模式*5
+
+	console.log(str);
+	console.log(str.replace(reg, "*"))
+	console.log(str.replace(reg1, "*"))
+	console.log(str.replace(reg2, "*"))
+	console.log(str.replace(reg3, "*"))
+</script>
+</html>

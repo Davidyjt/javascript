@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>透明度</title>
+	<style>
+	#box{ 
+		width:400px;
+		height: 500px;
+		background: pink;
+	/*	float: left;*/
+		/*position: absolute;
+		left: -400px;
+		top: 0px;
+
+*/
+        opacity: 0.2;	 
+    }
+	
+
+	 
+
+		
+	</style>
+	
+</head>
+<body>
+	<button id="btn">开始动画</button>
+
+	<div id="box">
+		
+		
+	    </div>
+  </div>
+	
+	
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	var oBtn = document.getElementById('btn');
+	var timer = null;
+	var iSpeed = 0;
+ oBtn.onclick  =function(){
+ 	
+ 	
+	clearInterval(timer);
+	// var iSpeed =0;
+
+	timer = setInterval(function(){//设置一个循环计时器
+		var currentVal = parseFloat(getComputedStyle(oBox, false)["opacity"])//获取opacity的值
+		currentVal =currentVal*100;
+		iSpeed =(100- currentVal)/20;
+		// if(iSpeed >0){
+		// 	iSpeed = Math.ceil(iSpeed);
+		// }else{
+		// 	iSpeed =Math.floor(iSpeed);
+		// }
+
+		//设置正向和反向动画
+		if(Math.abs( 100- currentVal) < Math.abs(iSpeed)){
+			// oBox2.style.left ="400"+"px";
+			oBox.style.opacity = 1;//目标值
+			clearInterval(timer);//，关闭该循环定时器
+		}else {
+			oBox.style.opacity  =(currentVal + iSpeed)/100;//其余情况下元素的offsetleft每次循环加10px;
+		}
+		console.log(currentVal)
+		},30)
+
+		
+	}
+	// var oBtn = document.getElementById('btn');
+	// var oBox = document.getElementById('box');
+	// var timer = null;
+	// var iSpeed = 0;
+	// oBtn.onclick = function(){
+	// 	clearInterval(timer);
+	// 	// console.log(typeof getComputedStyle(oBox,false)["opacity"]);
+	// 	timer = setInterval(function(){
+	// 		var currentVal = parseFloat(getComputedStyle(oBox,false)["opacity"]);
+	// 		currentVal = currentVal*100;
+	// 		if(currentVal < 100){
+	// 			iSpeed = 3;
+ // 			}else{
+ // 				iSpeed = -3;
+ // 			}
+	// 		if(Math.abs(100 - currentVal) < Math.abs(iSpeed)){
+	// 			oBox.style.opacity = 1;
+	// 			clearInterval(timer);
+	// 		}else{
+	// 			oBox.style.opacity = (currentVal + iSpeed)/100;
+	// 		}
+	// 		console.log(currentVal);
+	// 	},30)
+	// }
+	
+	
+
+	
+
+
+</script>
+</html>

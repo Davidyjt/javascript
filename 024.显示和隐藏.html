@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">显示和隐藏</button>
+	<div id="box">wo</div>
+
+	
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	var oBtn = document.getElementById('btn');
+	console.log(oBox)
+
+	oBtn.onclick = function(){
+		console.log(oBox.style.display);
+		if(oBox.style.display == "none"){
+			oBox.style.display = "block";
+		}else {
+			oBox.style.display = "none";
+		}
+		
+
+
+	}
+	// oBtn.onclick = function(){
+	// 	if (oBox.style.display == 'none') {
+	// 		oBox.style.display = 'block';
+	// 	}else{
+	// 		oBox.style.display = 'none';
+	// 	}
+	// }
+
+	
+</script>
+</html>

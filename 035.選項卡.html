@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>選項卡</title>
+	<link rel="stylesheet" href="css/resert.css">
+	<style>
+	#tab-btn li{
+		float: left;
+		margin-left: 10px;
+		cursor: pointer;
+
+	}
+	#tab-content li{
+		width: 200px;
+		height: 200px;
+		border: 1px solid gray;
+
+	}
+	#tab-content{
+		margin-top: 20px;
+	}
+	#tab-content li{
+		display: none;
+	}
+	li{
+		list-style: none;
+	}
+	#tab-content .li{
+		display: block;
+	}
+	.active{
+		border-bottom: 2px solid #ff6700;
+		color: #ff6700;
+	}
+	.clearfix:after{
+        content: "";
+        clear: both;
+        display: block;
+        height: 0px;
+        visibility: hidden;
+    }
+    .clearfix{
+        *zoom:1;
+    }
+
+		
+	</style>
+	
+</head>
+<body>
+	<ul id="tab-btn" class="clearfix">
+		<li class="active">熱門</li>
+		<li>電視影音</li>
+		<li>電腦</li>
+		<li>家具</li>
+	</ul>
+	<ul id="tab-content">
+		<li class="li">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+	
+</body>
+<script>
+	var aBtn = document.querySelectorAll("#tab-btn li");//获取电器的按钮
+	var aContent = document.querySelectorAll("#tab-content li");//获取内容
+
+	for(var i = 0;i < aBtn.length;i++){
+		aBtn[i].index = i;
+
+		aBtn[i].onmouseover = function(){
+		for(var j = 0;j < aBtn.length;j++){
+			aBtn[j].className ="";
+			aContent[j].style.display = "none";
+		}
+		
+			this.className = "active";
+			aContent[this.index].style.display = "block";
+		}
+	}
+
+
+
+
+
+</script>
+</html>

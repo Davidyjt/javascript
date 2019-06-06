@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取输入框的值</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">获取</button>
+	<ul id="list">
+		
+
+	</ul>
+	
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oList = document.getElementById('list');
+	var oBtn = document.getElementById('btn');
+
+	oBtn.onclick = function(){
+		var vAl = oTxt.value;
+		var newLi = document.createElement('li');//创建一个新li
+		newLi.innerHTML = vAl;
+		oList.appendChild(newLi)//在父元素中添加新的元素
+
+	}
+
+	
+</script>
+</html>

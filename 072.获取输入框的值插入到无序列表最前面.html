@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取输入框的值</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">获取</button>
+	<ul id="list">
+		
+
+	</ul>
+	
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oList = document.getElementById('list');
+	var oBtn = document.getElementById('btn');
+
+	oBtn.onclick = function(){
+		var vAl = oTxt.value;//获取输入框的值
+		var newLi = document.createElement('li');//新建一个li节点
+		newLi.innerHTML = vAl;//新li节点的内容是输入框的值
+		oList.insertBefore(newLi,oList.firstChild)//在oList.firstChild之前插入newli
+
+	}
+
+	
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串处理方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str ="day day is a good day";
+	var reg =/is/g;
+	console.log(str);
+	console.log(str.search(reg))//返回第一个匹配结果的index,查不到返回-1
+
+	var str2 ="assdf2019-05-30nkm2019-05-31bhh"
+	var reg2 =/(?<years>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+	console.log(str2);
+	console.log(str2.match(reg2));//找到字符串中所有匹配的字符，有的话返回数组，没有的话返回null
+
+	var str3 ="dbhb mknjfgh klhnc lksghdnk kljsndkj";
+	var reg3 =/\s/g;
+	console.log(str3);
+	console.log(str3.split(reg3));//根据正则匹配把字符串分成数组
+
+	var str4 ="snjknkjjb 24335454"
+	console.log(str4.charAt(1));//返回下标对应的数字
+	console.log("charCodeAt()",str4.charCodeAt(1))//返回下标对应的编码
+	var str5 ="243"
+    console.log(str4.indexOf(str5));//根据字符返回位置,从前向后找,找不到返回-1
+    console.log(str4.lastIndexOf(str5));//根据字符返回位置,从后向前找,找不到返回-1
+    console.log('连接字符串',str4.concat(str5));
+    console.log('截取字符串',str.slice(0,1));//包含起始下标但不包括结束下标
+    var str6 ="    GKJJDH   HJHHH    "
+     console.log('字符串转换为小写',str6.toLowerCase())  
+	 console.log('字符串转换为大写',str4.toUpperCase())  
+	 console.log('去除字符串两边的空白',str6.trim())
+
+
+
+
+
+
+
+</script>
+</html>

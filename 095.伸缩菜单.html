@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伸缩菜单</title>
+	<style>
+	#box{ 
+		width:400px;
+		height: 500px;
+		background: pink;
+	/*	float: left;*/
+		position: absolute;
+		left: -400px;
+		top: 0px;
+
+	 }
+	 #box2{
+	 	width: 100px;
+	 	height: 500px;
+	 	background: gray;
+	 	/*float: left;*/
+	 	position: absolute;
+	 	right: -100px;
+	 	top: 0px;
+
+	 }
+
+		
+	</style>
+	
+</head>
+<body>
+	<div id="box">
+		<div id="box2">
+		
+	    </div>
+  </div>
+	
+	
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	var oBox2 = document.getElementById('box2');
+	var timer = null;
+	var iSpeed = 0;
+ oBox.onmouseover =function(){
+	clearInterval(timer);
+	var iSpeed =0;
+
+	timer = setInterval(function(){//设置一个循环计时器
+		if(oBox.offsetLeft <0){//设置当left小于目标值时，速度为13，其余为-13.
+			iSpeed =13;
+		}else {
+			iSpeed =-13;
+		}//设置正向和反向动画
+
+
+
+
+
+		if(Math.abs( 0- oBox.offsetLeft) < Math.abs(iSpeed)){
+			// oBox2.style.left ="400"+"px";
+			oBox.style.left =0+"px";//目标值
+
+			
+			clearInterval(timer);//当元素的offsetleft值等于800时，关闭该循环定时器
+		}else {
+			oBox.style.left =oBox.offsetLeft + iSpeed+"px";//其余情况下元素的offsetleft每次循环加10px;
+		}
+		},30)
+		
+	}
+	oBox.onmouseout =function(){
+	clearInterval(timer)
+	var iSpeed =0;
+
+	timer = setInterval(function(){//设置一个循环计时器
+		if(oBox.offsetLeft <-400){//设置当left小于目标值时，速度为13，其余为-13.
+			iSpeed =13;
+		}else {
+			iSpeed =-13;
+		}//设置正向和反向动画
+
+
+
+
+
+		if(Math.abs(-400- oBox.offsetLeft) < Math.abs(iSpeed)){
+			// oBox2.style.left =0+"px";
+			oBox.style.left ="-400"+"px";
+
+			
+			clearInterval(timer);//当元素的offsetleft值等于800时，关闭该循环定时器
+		}else {
+			oBox.style.left =oBox.offsetLeft + iSpeed+"px";//其余情况下元素的offsetleft每次循环加10px;
+		}
+		},30)
+		
+	}
+	
+
+	
+
+
+</script>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+	<style>
+	*{
+		margin:0px;
+		padding:0px;
+		
+		}
+		#wrap{
+			position: relative;
+			margin: 50px 100px;
+		}
+		#bigbox{
+			width: 450px;
+			height: 450px;
+			border: 1px solid black;
+			/*box-sizing: border-box;*/
+			/*margin: 100px auto;*/
+			position: relative;
+		}
+		#smallbox{  width: 450px;
+			height: 54px;
+			width:450px ;
+		/*	margin-top: 5px;*/
+		/*	margin: 100px auto;*/
+
+		}
+		#smallbox li{
+			list-style: none;
+			float: left;
+			width: 54px;
+			margin-right: 30px;
+			/*border: 1px solid gray;*/
+			/*box-sizing: border-box;*/
+			cursor: pointer;
+
+		}
+		#smallbox li.active{
+			border: 1px solid red;
+
+
+		}
+		#smallbox img{
+			height: 54px;
+			
+			width: 75%;
+		}
+		#largebox{
+			width: 600px;
+			height: 600px;
+			position: absolute;
+			top: 0px;
+			left: 452px;
+			overflow: hidden;
+			/*background: red;*/
+		}
+		#largebox img{
+			/*display: none;*/
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 600px;
+			height: 600px;
+			
+		/*	height: 54px;*/
+		}
+		#mask{
+			width: 225px;
+			height: 225px;
+			background: pink;
+			opacity: 0.5;
+			position: absolute;
+			top: 0;
+			left: 0;
+
+		}
+		
+	</style>
+	
+</head>
+<body>
+	<div id="wrap">
+		<div id="bigbox">
+			<img src="image/p_b_0001.jpg" alt="">
+			<div id="mask"></div>
+		</div>
+		<ul id="smallbox">
+			<li class="active"><img src="image/p_s_0001.jpg" alt=""></li>
+			<li><img src="image/p_s_0002.jpg" alt=""></li>
+			<li><img src="image/p_s_0003.jpg" alt=""></li>
+		</ul>
+		<div id="largebox">
+			<img src="image/p_l_0001.jpg" alt="">
+		</div>
+	</div>	
+</body>
+<script>
+	var oWrap= document.getElementById("wrap");
+	var oMask= document.getElementById("mask");
+
+	var oSmallbox= document.getElementById("smallbox");
+	var oBigbox= document.getElementById("bigbox");
+	var oLarge= document.getElementById("largebox");
+	var oLargeimg= document.querySelector("#largebox img");
+	var oSmallboxli= document.querySelectorAll("#smallbox li");
+	var oBigimg= document.querySelector("#bigbox img");
+
+	//给每个li监听事件
+	for(var i =0;i<oSmallboxli.length;i++){
+
+		oSmallboxli[i].index=i;
+		oSmallboxli[i].onmouseover=function(){
+		for(var j =0;j<oSmallboxli.length;j++){
+			oSmallboxli[j].className="";
+		}
+		this.className="active"
+		oBigimg.src ="image/p_b_000" +(this.index+1)+ ".jpg";
+		oLargeimg.src="image/p_l_000"+(this.index+1)+".jpg";
+	}
+	}
+
+	//给大盒子监听事件
+	oBigbox.onmouseover=function(){
+		oMask.style.display="block";
+		oLarge.style.display="block"
+		//给蒙版监听事件
+		oMask.onmousemove = function(ev){
+			var l = ev.clientX - oMask.offsetWidth*0.5 - oWrap.offsetLeft;
+			var t = ev.clientY - oMask.offsetHeight*0.5 - oWrap.offsetTop;
+			oMask.style.left =l+"px";
+			oMask.style.top =t+"px";
+			//将蒙版限制在父容器内部
+			if(l < 0){
+				l = 0;
+			}else if(l > oBigbox.offsetWidth - oMask.offsetWidth){
+				l = oBigbox.offsetWidth - oMask.offsetWidth;
+			}
+			if(t < 0){
+				t = 0;
+			}else if(t > oBigbox.offsetHeight - oMask.offsetHeight){
+				t = oBigbox.offsetHeight - oMask.offsetHeight;
+			}
+			var percentX = l / (oBigbox.offsetWidth - oMask.offsetWidth);
+			var percentY = t / (oBigbox.offsetHeight - oMask.offsetHeight);
+			oLargeimg.style.top = (oLarge.offsetHeight-oLargeimg.offsetHeight)*percentY + "px";
+			oLargeimg.style.left = (oLarge.offsetWidth-oLargeimg.offsetWidth)*percentX + "px";
+			oMask.style.left =l+"px";
+			oMask.style.top =t+"px";
+		}
+	}
+	  
+	oBigbox.onmouseout=function(){
+		oMask.style.display="none";
+		oLarge.style.display="none"
+	}
+
+	
+</script>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+	<style>
+		.coursel{
+			width: 1200px;
+			height: 600px;
+			position: relative;
+			top: 100px;
+			left: 320px;
+		}
+		.coursel-list li{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			list-style: none;
+
+		}
+		.coursel-list li img{
+			width: 1200px;
+			height: 600px;
+		}
+		.left-arrow{
+			width: 50px;
+			height: 50px;
+			border: 1px solid gray;
+			border-radius: 25%;
+			position: absolute;
+			top:50%;
+			margin-top: -50px;
+			left: 0px;
+			font-size: 24px;
+			line-height: 50px;
+			text-align: center;
+			display: none;
+			cursor: pointer;
+			z-index: 10;
+
+		}
+		.coursel:hover .left-arrow{
+			display: block;
+		}
+		.right-arrow{
+			width: 50px;
+			height: 50px;
+			border: 1px solid gray;
+			border-radius: 25%;
+			position: absolute;
+			top:50%;
+			margin-top: -50px;
+			right: 0px;
+			font-size: 24px;
+			line-height: 50px;
+			text-align: center;
+			display: none;
+			cursor: pointer;
+			z-index: 10;
+
+
+		}
+		.coursel:hover .right-arrow{
+			display: block;
+		}
+		.coursel-btns{
+			position: absolute;
+			bottom: 50px;
+			right: 50px;
+			z-index: 10;
+
+
+		}
+		.coursel-btns-item{
+			width: 10px;
+			height: 10px;
+			border: 5px solid gray;
+			border-radius: 50%;
+			float: left;
+			margin-left: 10px;
+			list-style: none;
+			z-index: 10;
+			cursor: pointer;
+
+
+
+
+		}
+		.coursel-btns .active{
+			background: red;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="coursel">
+		<ul class="coursel-list">
+			<li class="" style="z-index:9;"><img src="image/b1.jpg" alt=""></li>
+			<li class=""><img src="image/b2.jpg" alt=""></li>
+			<li class=""><img src="image/b3.jpg" alt=""></li>
+		</ul>
+		<div class="left-arrow">&lt</div>
+		<div class="right-arrow">&gt</div>
+		<ul class="coursel-btns">
+			<li class="coursel-btns-item active"></li>
+			<li class="coursel-btns-item"></li>
+			<li class="coursel-btns-item"></li>
+		</ul>
+	</div>
+	
+</body>
+<script>
+	//获取元素
+	var aImg = document.querySelectorAll(".coursel .coursel-list li");//获取轮播图里的图片
+	var aLeft = document.querySelector(".left-arrow");//获取左边按钮
+	var aRight = document.querySelector(".right-arrow");//获取右边按钮
+	var aBtn = document.querySelectorAll(".coursel-btns-item");///获取下边三个按钮
+	function tab(){
+		for(var i =0; i<aImg.length;i++){
+			aImg[i].style.zIndex = "0";
+			aBtn[i].className ="coursel-btns-item"
+		}
+		aImg[newI].style.zIndex = "9";
+		aBtn[newI].className ="coursel-btns-item active"
+	}
+	console.log(aImg)
+	console.log(aLeft)
+	console.log(aBtn)
+	//点击右按钮翻页
+	var newI =0;
+	aRight.onclick= function(){//设置点击右边函数
+		newI++;
+		if(newI>=aImg.length){
+			newI=0;//设置循环点击事件，到最后一张图片后再开始第一张
+		}
+		for(var i =0; i<aImg.length;i++){
+			aImg[i].style.zIndex = "0";
+			aBtn[i].className ="coursel-btns-item"
+		}//当点击图片时，前一张图片zindex变为0，
+		aImg[newI].style.zIndex = "9";
+		aBtn[newI].className ="coursel-btns-item active"
+
+	}//新图片的zindex变为9；
+
+	//点击左按钮翻页
+	aLeft.onclick= function(){
+		newI--;
+		if(newI<0){
+			newI=aImg.length-1;
+		}//设置循环点击事件，当到第一张图片时，再到最后一张
+		for(var i =0; i<aImg.length;i++){
+			aImg[i].style.zIndex = "0";
+			aBtn[i].className ="coursel-btns-item"
+		}
+		aImg[newI].style.zIndex = "9";
+		aBtn[newI].className ="coursel-btns-item active"
+
+	}
+	//给按钮添加时间
+	for (var i =0;i<aBtn.length;i++){
+		aBtn[i].index =i;
+		aBtn[i].onclick =function(){
+			newI = this.index;
+			tab()
+		}
+	}
+	//自动轮播
+	setInterval(aRight.onclick, 10000)
+
+</script>
+</html>

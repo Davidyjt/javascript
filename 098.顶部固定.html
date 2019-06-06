@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{
+		margin:0px;
+		padding: 0px;
+	}
+
+
+
+
+	#top{
+		/*width:1330px;*/
+		height: 100px; 
+		background: blue;
+	}
+	#nav{
+		width:1000px;
+		height: 0px;
+		background: pink; 
+		position: fixed;
+		left: 50%;
+		top: 0px;
+		margin-left: -500px;
+	}
+	#main{
+		/*width: 1330px;*/
+		height: 10000px;
+		background: yellow;
+	}
+
+		
+	</style>
+	
+</head>
+<body>
+	<div id="top"></div>
+	<div id="nav"></div>
+	<div id="main"></div>
+	
+</body>
+<script src="animation.js"></script>
+<script>
+ // /
+	
+	// oBox1.onclick= function(){
+	// 	animation (oBox1,"width",400)}
+	// 	oBox2.onclick= function(){
+	// 	animation (oBox2,"height",400)}
+	// 	oBox3.onclick= function(){
+	// 	animation (oBox3,"opacity",400)}
+
+function getScrollTop(){
+		return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;}//获取垂直滚动距离
+
+
+	var  oNav =document.getElementById("nav")//获取导航栏
+	var isShowS =false;
+	window.onscroll = function(){
+		var iTop = getScrollTop();
+		if (iTop>=100) {
+			if(!isShowS){//当不出现时
+				console.log(111);
+				animation(oNav,"height",100);
+				isShowS = true;//结束状态是true
+			}
+		}
+		else{
+							
+		    if(isShowS){
+				console.log(222);
+				animation(oNav,"height",0);//当出现时
+				isShowS = false;//结束状态是false
+			}
+
+		}
+	}
+
+
+</script>
+
+</html>
+
+	

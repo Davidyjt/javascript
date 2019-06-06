@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>合法年份</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">筛选</button>
+	
+</body>
+<script>
+	var oTxt =document.getElementById("txt");
+	var oBtn =document.getElementById("btn");
+	oBtn.onclick=function(){
+		var sVal=oTxt.value;
+		var reg =/^[1-2]\d{3}$/;
+
+		if(reg.test(sVal)){
+			alert("合法年份")
+		}else{
+			alert("不合法年份")
+		}
+	}
+
+	
+</script>
+</html>

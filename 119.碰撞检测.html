@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+
+                    }
+
+
+        #box1{
+            width: 200px;
+            height: 300px;
+            position: absolute;
+            top: 200px;
+            left: 400px;
+            background: yellow;
+        }
+        body{
+            width: 3000px;
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="box1">   </div>
+    
+    
+</body>
+<script src="animation.js"></script>
+<!-- //引入外部动画,包括垂直方向和竖直方向上的滚动距离 -->
+<script>
+    var oBox = document.getElementById("box");
+    var oBox1 =document.getElementById("box1")
+    oBox.onmousedown =function(ev){
+    var disX =ev.clientX - oBox.offsetLeft;
+    var disY =ev.clientY - oBox.offsetTop;
+    var l =0;
+    var t = 0;
+    document.onmousemove = function(ev){
+        l=ev.clientX -disX;//计算盒子的左边距
+        t =ev.clientY-disY;//计算盒子的上边距
+        if(oBox.offsetLeft + oBox.offsetWidth >=oBox1.offsetLeft //设置碰撞左边事件
+            && oBox.offsetTop + oBox.offsetHeight>=oBox1.offsetTop////设置碰撞上边事件
+            &&oBox1.offsetLeft + oBox1.offsetWidth >=oBox.offsetLeft //设置碰撞右边事件
+            &&oBox1.offsetTop + oBox1.offsetHeight>=oBox.offsetTop//设置碰撞下边事件
+
+            ){
+            oBox1.style.background = "black";
+        }else {
+            oBox1.style.background = "yellow"
+        }
+       
+
+
+
+
+
+
+        if(l<0){
+            l =0
+        }else if(l > window.innerWidth- oBox.offsetWidth){
+        
+            l = window.innerWidth- oBox.offsetWidth;
+
+        }
+        if(t<0){
+            t =0
+        }else if(t > window.innerHeight- oBox.offsetHeight){
+        
+            t = window.innerHeight- oBox.offsetHeight;
+
+        }
+        oBox.style.left = l+ "px";
+        oBox.style.top = t+ "px";
+
+
+    }
+    document.onmouseup=function(){
+        document.onmousemove=null;
+        document.onmouseup=null;
+
+    }
+
+    }
+
+
+</script>
+</html>

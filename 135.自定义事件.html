@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义事件</title>
+</head>
+<body>
+	<button id="btn">事件</button>
+	
+</body>
+<script>
+	var oBtn =document.getElementById("btn");
+	//1.创建对象
+	var ev =new Event("test");
+
+
+	//监听对象
+	oBtn.addEventListener("test", function(){
+		alert("hello world");
+	},false);
+	//3.触发对象
+	oBtn.dispatchEvent(ev);
+</script>
+</html>

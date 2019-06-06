@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>前瞻</title>
+</head>
+<body>
+	
+</body>
+<script>
+	
+	var str ="a1c2b3n4k5l6o#$%%";
+	var reg1 =/[a-z](?=\d)/g;//正向前瞻
+	var reg2 =/[a-z](?!\d)/g;//负向前瞻
+	console.log(str)
+	console.log(str.replace(reg1, "*"))
+	console.log(str.replace(reg2, "*"))
+
+</script>
+</html>

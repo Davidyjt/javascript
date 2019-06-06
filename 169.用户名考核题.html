@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户名考核题</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			margin: 100px auto;
+			widows: 200px;
+			position: relative;
+			left: 500px;
+		}
+		#txt{
+			widows: 200px;
+			height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+	<input type="text" id="txt">
+	<button id="btn">提交</button>
+	</div>
+</body>
+<script>
+	var oTxt =document.getElementById("txt");
+	var oBtn =document.getElementById("btn");
+
+	oBtn.onclick=function(){
+		//.用户名长度最多是7个汉字或14个字符2.不能是纯数字
+
+		var sVal =oTxt.value;
+		var reg =/[\u4e00-\u9fa5]{1,7}|\d{1,14}/
+		if(reg.test(sVal)){
+			alert("合法用户名")
+
+		}else{
+			alert("不合法用户名")
+
+		}
+	}
+</script>
+</html>

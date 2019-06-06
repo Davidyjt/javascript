@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>工厂函数创建对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+	this.sayname=function(){
+			console.log('I am'+ name)
+		}
+    this.sayage=function(){
+			console.log('I am' +age+ "years old");
+		}
+	function createPerson(name,age){
+		// var this =[];//定义一个空数组
+		this.name=name;//添加name
+		this.age=age;//添加age
+		
+		
+		// return obj;//返回obj
+	}
+	var person1 = new createPerson("leo",20);
+		person1.sayage();//输出sayage()
+		person1.sayname();//输出sayname()
+		console.log(person1)
+
+
+		var person2 = new createPerson("tom",82);
+		person2.sayage();
+		person2.sayname();
+		console.log(person2)
+
+		console.log(person1 == person2);
+</script>
+</html>

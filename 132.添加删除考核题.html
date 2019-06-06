@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取输入框的值</title>
+	<style>
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+		#txt{
+			width: 200px;
+			height: 200px;
+			margin: 100px auto;
+			margin-left: 500px;
+		}
+		ul{
+			margin-top: 10px;
+			width: 300px;
+			height: 200px;
+			border: 1px solid gray;
+			margin-left: 500px;
+			margin-top:10px;
+			overflow: hidden;
+
+		}
+		li{
+			border-bottom: 2px dotted pink;
+			width: 200px;
+			height: 40px;
+			/*margin-left: 500px;*/
+			/*margin-top: 10px;*/
+			padding: 10px;
+			list-style: none;
+			transition:all 500ms;
+		}
+		a{
+			float: right;
+			color:skyblue;
+		}
+		#btn{
+			transition:all 500ms;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="txt" autocomplete="off">
+	<button id="btn">获取</button>
+	<ul id="list">
+		
+
+	</ul>
+	
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oList = document.getElementById('list');
+	var oBtn = document.getElementById('btn');
+
+	oBtn.onclick = function(){
+		var vAl = oTxt.value;//获取输入框的值
+		var newLi = document.createElement('li');//新建一个li节点
+		newLi.innerHTML = vAl;//新li节点的内容是输入框的值
+		var oA =document.createElement("a");//新建一个a标签
+		oA.href= "#";//a标签的href为#
+		oA.className="del";//a标签的classname为del
+		oA.innerHTML ="删除";//a标签内容为删除
+		newLi.appendChild(oA);//在li里添加a标签
+		oList.insertBefore(newLi,oList.firstChild)//在oList.firstChild之前插入newli
+		oTxt.value="";//获取过后输入框的值为空
+
+	}
+
+	oList.onclick=function(ev){
+		var oTarget =ev.target;//获取鼠标目标
+		if(oTarget.className=="del"){
+			oList.removeChild(oTarget.parentNode)//当鼠标点击的类名为del时，删除父元素
+		}
+
+	
+
+	}
+</script>
+</html>

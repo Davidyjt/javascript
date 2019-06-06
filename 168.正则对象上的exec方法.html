@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>exec</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str ="a2019-05-29b2019-05-30c";
+	var reg =/(?<years>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+	console.log(str);
+	console.log(reg.lastIndex);
+	console.log(reg.exec(str));
+	console.log(reg.lastIndex);
+	console.log(reg.exec(str));
+</script>
+</html>

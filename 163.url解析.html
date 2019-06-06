@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>url</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">筛选</button>
+</body>
+<script>
+
+	var oTxt =document.getElementById("txt");
+	var oBtn =document.getElementById("btn");
+
+	// https://www.kuazhu.com
+	oBtn.onclick=function(){
+		var sVal=oTxt.value;
+		var reg =/^[a-z0-9]+:\/\/[a-z]+\.[a-z0-9]+.[a-z]{2,5}$/;
+
+		if(reg.test(sVal)){
+			alert("合法年份")
+		}else{
+			alert("不合法年份")
+		}
+	}
+
+	
+</script>
+</html>
+</script>
+</html>

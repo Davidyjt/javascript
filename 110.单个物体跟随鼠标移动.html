@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+
+					}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	
+</body>
+<script src="animation.js"></script>
+<!-- //引入外部动画,包括垂直方向和竖直方向上的滚动距离 -->
+<script>
+	var oBox = document.getElementById("box");
+    document.onmousemove =function(ev){
+
+    	oBox.style.left = getScrollLeft() +ev.clientX + "px";
+    	oBox.style.top = getScrollTop() +ev.clientY + "px";
+    }
+
+
+</script>
+</html>

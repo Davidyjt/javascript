@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原型模式考核</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function CreatePerson(name,age,major){
+		this.name =name;
+		this.age =age;
+		this.major =major;
+		if(!CreatePerson.prototype.showPe){
+
+			CreatePerson.prototype.showPe =function(){+
+				console.log('i am'+this.name +"," +"i am" +this.age+"years old" +"," +"i major" +this.major+","+"i like it");
+			}
+		}
+		}
+		var person1 =new CreatePerson("JINTAO",18,"math");
+		person1.showPe()
+		var person2 =new CreatePerson("leo",98,"PE");
+		person2.showPe()
+
+</script>
+</html>

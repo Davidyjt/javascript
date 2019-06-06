@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>
+	<style>
+		div{
+			width: 400px;
+			height: 200px;
+			margin: 100px auto;
+			font-size: 18px;
+			color: #ff6700;
+		}
+		body{
+			background: #000000;
+		}
+	</style>
+</head>
+<body>
+	<div id="timer">
+		距离活动结束还有08小时20分30秒
+	</div>
+</body>
+<script>
+	var oTimer = document.getElementById('timer');//选择dom元素
+
+	function to2str(num){
+		return num<10 ? "0" + num : "" + num;
+	}//定义当时，分，秒小于10时，在前面加上0
+	var endTime = new Date("2019-5-15 12:00:30");//定义一个结束时间
+	console.log(endTime)
+	function countDwon(){
+		var allMinSeconds =endTime.getTime() - Date.now();//计算距离结束时间的毫秒数
+		if(allMinSeconds<=0){
+			allMinSeconds=0;
+			clearInterval(timer)//当时间为0时，停止循环定时器
+		}
+		var allSeconds =parseInt(allMinSeconds / 1000);
+		var iHour = parseInt(allSeconds / 3600);//计算小时
+		var iMinute = parseInt(allSeconds % 3600 / 60);//计算分钟
+		var iSecond = parseInt(allSeconds % 3600 % 60);//计算秒数
+		console.log(iHour)
+		console.log(iMinute)
+		console.log(iSecond)
+		oTimer.innerHTML = "距离活动结束还有" + to2str(iHour) +"小时" + to2str(iMinute) + "分" +to2str(iSecond) +"秒"
+
+	}
+	setInterval(countDwon, 1000)//设置循环定时器
+
+	countDwon()//输出函数
+
+	
+</script>
+</html>

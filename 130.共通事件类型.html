@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 400px;
+			height: 400px;
+			background: red;
+			margin:100px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	
+</body>
+<script>
+	var oBox=document.getElementById("box");
+	function handleDom(ev){
+		if(ev.type =="mouseover"){//当事件类型是mouseover
+			oBox.style.background = "yellow";
+		}else if(ev.type =="click"){//当事件的类型是click时
+			oBox.style.background = 'black';
+		}
+	}
+	oBox.onmouseover=handleDom;
+	oBox.onclick=handleDom;
+
+</script>
+</html>
+

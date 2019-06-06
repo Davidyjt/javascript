@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+
+					}
+        .border{
+            position: absolute;
+            border: 5px solid gray;
+           /* top: 0px;
+            left: 0px;*/
+            z-index: 4;
+        }
+
+		
+
+        body{
+			width: 3000px;
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	
+	
+</body>
+<script src="animation.js"></script>
+<!-- //引入外部动画,包括垂直方向和竖直方向上的滚动距离 -->
+<script>
+    var oBox = document.getElementById("box");
+    oBox.onmousedown =function(ev){
+    var disX =ev.clientX - oBox.offsetLeft;
+    var disY =ev.clientY - oBox.offsetTop;
+    var l =0;
+    var t = 0;
+    var oBorder =document.createElement("div");//创建一个新盒子
+    oBorder.style.width = oBox.offsetWidth + "px";
+    oBorder.style.height = oBox.offsetHeight + "px";
+    oBorder.style.left = oBox.offsetLeft + "px";
+    oBorder.style.top  = oBox.offsetTop + "px";//设置盒子的宽高，left top值和obox相对应
+    oBorder.className ="border"; //新盒子的类名是border
+    document.body.appendChild(oBorder)//插入新盒子
+     
+
+    document.onmousemove = function(ev){
+    	l=ev.clientX -disX;//计算盒子的左边距
+    	t =ev.clientY-disY;//计算盒子的上边距
+    	if(l<0){
+    		l =0
+    	}else if(l > window.innerWidth- oBorder.offsetWidth){
+    	
+    		l = window.innerWidth- oBorder.offsetWidth;
+
+    	}
+    	if(t<0){
+    		t =0
+    	}else if(t > window.innerHeight- oBorder.offsetHeight){
+    	
+    		t = window.innerHeight- oBorder.offsetHeight;
+
+    	}
+    	oBorder.style.left = l+ "px";
+    	oBorder.style.top = t+ "px";
+
+
+    }
+    document.onmouseup=function(){
+        oBox.style.left = oBorder.offsetLeft+ "px";
+        oBox.style.top = oBorder.offsetTop+ "px";//设置obox的位置和移动后的border对应
+        document.body.removeChild(oBorder);//结束后清除oBorder
+    	document.onmousemove=null;
+    	document.onmouseup=null;
+
+    }
+
+    }
+
+
+</script>
+</html>

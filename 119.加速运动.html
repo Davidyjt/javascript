@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匀速动画</title>
+	<style>
+		#box1{
+			width: 900px;
+			height: 900px;
+			/*background: red;*/
+			position: absolute;
+			top: 50px;
+			left: 500px;
+			border: 1px solid gray;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top:0PX;
+			left: 0;
+		}
+		.line{
+			height: 400px;
+			width: 1px;
+			background: black;
+			position: absolute;
+			top: 50px;
+			left: 800px;
+
+		}
+
+
+	</style>
+</head>
+<body>
+	<div id="box1"> <div id="box"></div></div>
+	<button id="btn">开始</button>
+	
+	
+</body>
+<script>
+	var oBox =document.getElementById('box');//获取需要添加动画的盒子
+	var oBox1 =document.getElementById('box1');//获取需要添加动画的盒子
+	var oBtn =document.getElementById('btn');//获取开始按钮
+	var timer =null;//定义一个空，方便下面使用和赋值
+	var iSpeed = 0;
+	oBtn.onclick=function(){//设置一个点击函数
+		clearInterval(timer)//解决多次点击问题
+
+	timer = setInterval(function(){//设置一个循环计时器
+		if(oBox.offsetTop <800){//设置当left小于800时，速度为13，其余为-13.
+			iSpeed =(oBox.offsetTop+10)/2;
+		}else {
+			iSpeed =-(oBox.offsetTop +10)/2;
+		}//设置正向和反向动画
+
+
+
+
+
+		if(Math.abs(800 - oBox.offsetTop) < Math.abs(iSpeed)){
+			oBox.style.top  = "800px"
+			clearInterval(timer);//当元素的offsetleft值等于800时，关闭该循环定时器
+		}else {
+			oBox.style.top  =oBox.offsetTop + iSpeed+"px";//其余情况下元素的offsetleft每次循环加10px;
+		}
+		},30)
+
+		 
+		}
+
+		
+	
+
+
+</script>
+
+</html>
+</script>
+</html>

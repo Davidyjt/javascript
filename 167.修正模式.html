@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>修正模式</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str ="aaaxcdd JKLIxxc 1823lkmNN,M 112MMn";
+	var reg1 =/[a-z]/;//非全局
+	var reg2 =/[a-z]/g;//全局
+	var reg3 =/[a-zA-Z]/g;//全局
+	var reg4 =/[a-z]/gi;//忽略大小写
+	console.log(str)
+
+	console.log(str.replace(reg1, "*"));
+	console.log(str.replace(reg2, "*"));
+	console.log(str.replace(reg3, "*"));
+	console.log(str.replace(reg4, "*"));
+	console.log(reg1.ignoreCase);
+	console.log(reg4.ignoreCase);//是否是忽略模式
+	console.log(reg1.global);
+	console.log(reg4.global);//是否是全局模式
+
+</script>
+</html>

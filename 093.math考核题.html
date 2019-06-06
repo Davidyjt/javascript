@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>math考核题</title>
+</head>
+<body>
+	
+</body>
+<script>
+	console.log(Math.random())
+	
+	function num(n1,n2){
+		n1 =Math.ceil(n1);//最小值向上取整
+		n2 =Math.round(n2);//最大值向下取整
+		return Math.floor(Math.random()*(n2 - n1 +1)) +n1;//返回之后，向下取整
+
+	}
+	// num(1,100)
+	console.log(num(1,100))
+</script>
+</html>

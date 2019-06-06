@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单元素方法</title>
+</head>
+<body>
+	<form action="hhtps://www.kuazhu.com">
+	用户名：
+ 	<input type="text" name="username" autocomplete="off">
+ 	<p id="msg"></p>
+ 	</form>
+	
+</body>
+<script>
+	var aForms=document.forms;//获取所有form元素
+	var oForm=aForms[0];//获取单个form元素
+	var aElements =oForm.elements;//获取form元素里的子元素
+	var oUsername=oForm.username;//获取用户名元素
+	var oMsg =document.getElementById("msg");//获取p标签
+	oUsername.onfocus =function(){
+		oMsg.style.color="blue";
+		oMsg.innerHTML ="请输入7-14位有效数字"
+	}//当输入框获取焦点时p标签的颜色为蓝色，内容为请输入7-14位有效数字
+	oUsername.onblur=function(){
+		var sVal =oUsername.value;//输入框的内容为sVal
+		var reg  =/^.{7,14}$/;//设置正则规则
+
+		if(!reg.test(sVal)){
+			oMsg.style.color ="red";
+			oMsg.innerHTML ="输入信息不合法";
+		}else{
+			oMsg.style.color ="green";
+			oMsg.innerHTML = "合法";
+		}
+	}
+
+	
+</script>
+</html>
